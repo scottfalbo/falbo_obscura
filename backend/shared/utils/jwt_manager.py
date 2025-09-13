@@ -25,8 +25,8 @@ class JWTManager:
             "username": user.username,
             "email": user.email,
             "is_admin": user.is_admin,
-            "exp": expire,
-            "iat": datetime.utcnow(),
+            "exp": int(expire.timestamp()),
+            "iat": int(datetime.utcnow().timestamp()),
             "type": "access"
         }
         
@@ -39,8 +39,8 @@ class JWTManager:
         payload = {
             "sub": user.id,
             "username": user.username,
-            "exp": expire,
-            "iat": datetime.utcnow(),
+            "exp": int(expire.timestamp()),
+            "iat": int(datetime.utcnow().timestamp()),
             "type": "refresh"
         }
         
