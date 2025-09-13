@@ -25,3 +25,18 @@ backend/
 - **Repository Pattern** - Data access abstraction
 - **Service Layer** - Business logic
 - **Dependency Injection** - FastAPI Depends system
+
+```txt
+┌─ API ──────────┐    ┌─ Core ─────────┐    ┌─ Infrastructure ──┐
+│ • Routers      │───▶│ • Services     │───▶│ • AWS Clients     │
+│ • Validation   │    │ • Interfaces   │    │ • Implementations │
+│ • Serialization│    │ • Domain Logic │    │ • External APIs   │
+└────────────────┘    └────────────────┘    └───────────────────┘
+                              │
+                    ┌─────────▼─────────┐
+                    │ Shared            │
+                    │ • Config          │
+                    │ • Dependencies    │
+                    │ • Middleware      │
+                    └───────────────────┘
+```

@@ -33,6 +33,7 @@ falbo_obscura/
 ## AWS Cloud Architecture
 
 ### Services
+
 - **Lambda + API Gateway** - Serverless backend
 - **DynamoDB** - Gallery metadata (NoSQL)
 - **S3 + CloudFront** - Image storage + CDN
@@ -40,6 +41,7 @@ falbo_obscura/
 - **SES** - Email service
 
 ### Portfolio Features
+
 - Public gallery pages
 - Admin login + content management UI
 - Image upload and metadata management
