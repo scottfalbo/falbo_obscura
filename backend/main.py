@@ -1,17 +1,19 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from shared.config.settings import settings
 
 # Create FastAPI app instance
 app = FastAPI(
     title="Falbo Obscura API",
     description="Portfolio website backend API",
-    version="1.0.0"
+    version="1.0.0",
+    debug=settings.debug
 )
 
 # Configure CORS for frontend communication
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Next.js dev server
+    allow_origins=settings.allowed_origins_list,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -31,7 +33,7 @@ if __name__ == "__main__":
     import uvicorn
     uvicorn.run(
         "main:app", 
-        host="0.0.0.0", 
-        port=8000, 
-        reload=True  # Auto-reload on code changes
+        host=settings.api_host, 
+        port=settings.api_port, 
+        reload=settings.debug  # Auto-reload on code changes
     )
